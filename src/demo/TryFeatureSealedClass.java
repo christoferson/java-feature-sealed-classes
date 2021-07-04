@@ -3,6 +3,8 @@ package demo;
 import demo.model.Button;
 import demo.model.Widget;
 import demo.rpg.Adventurer;
+import demo.rpg.Item;
+import demo.rpg.Item.Dagger;
 
 public class TryFeatureSealedClass {
 
@@ -11,6 +13,8 @@ public class TryFeatureSealedClass {
 		tryBasicDeclaration();
 		
 		tryShortDeclaration();
+		
+		tryShortDeclarationStatic();
 
 	}
 	
@@ -24,4 +28,8 @@ public class TryFeatureSealedClass {
 		System.out.println(adventurer);
 	}
 
+	private static void tryShortDeclarationStatic() {
+		Item item = new Dagger();
+		System.out.println(item);
+	}
 }
