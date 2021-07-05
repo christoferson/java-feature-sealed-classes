@@ -1,6 +1,5 @@
 package demo.rpg;
 
-// Demo abstract sealed class
 public abstract sealed class Item {
 
 	public abstract void socket(Gem gem);

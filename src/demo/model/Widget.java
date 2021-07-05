@@ -1,7 +1,5 @@
 package demo.model;
 
-import demo.others.Spinner;
-
 //public abstract sealed class Widget permits Button, Label {
 
 // Permitted type Spinner in an unnamed module should be declared in the same package demo.model of declaring type Widget
@@ -11,6 +9,6 @@ import demo.others.Spinner;
 //public sealed class Widget {
 
 
-public sealed class Widget permits Button, Label {
+public sealed class Widget permits Button, Label, Image {
 	
 }
