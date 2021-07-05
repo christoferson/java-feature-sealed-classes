@@ -5,6 +5,7 @@ import demo.model.Widget;
 import demo.rpg.Adventurer;
 import demo.rpg.Item;
 import demo.rpg.Item.Dagger;
+import demo.rpg.Medal;
 
 public class TryFeatureSealedClass {
 
@@ -15,6 +16,8 @@ public class TryFeatureSealedClass {
 		tryShortDeclaration();
 		
 		tryShortDeclarationStatic();
+		
+		tryShortDeclarationAuxilliary();
 
 	}
 	
@@ -32,4 +35,10 @@ public class TryFeatureSealedClass {
 		Item item = new Dagger();
 		System.out.println(item);
 	}
+	
+	private static void tryShortDeclarationAuxilliary() {
+		Medal medal = Medal.instance("arena");
+		System.out.println(medal);
+	}
+	
 }
