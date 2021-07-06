@@ -12,6 +12,8 @@ import demo.rpg.IMount;
 import demo.rpg.Item;
 import demo.rpg.Item.Dagger;
 import demo.rpg.Medal;
+import demo.rpg.gem.GemFactory;
+import demo.rpg.gem.IGem;
 
 public class TryFeatureSealedClass {
 
@@ -33,12 +35,15 @@ public class TryFeatureSealedClass {
 		
 		trySealedSubType();
 		
+		tryReducedSubTypeVisibility();
+		
 // record
 	}
 	
 	private static void tryBasicDeclaration() {
 		Widget widget = new Button();
 		System.out.println(widget);
+		widget.getClass().isSealed();
 	}
 	
 	private static void tryShortDeclaration() {
@@ -71,6 +76,8 @@ public class TryFeatureSealedClass {
 		IMount mount = new Dragon();
 		System.out.println(mount);
 		((IFlyingMount) mount).flutter();
+		IFlyingMount fmount = new Gryphon();
+		fmount.flutter();
 	}
 	// 
 	
@@ -78,4 +85,12 @@ public class TryFeatureSealedClass {
 		Widget widget = new Image.LineBorderedImage();
 		System.out.println(widget);
 	}
+	
+	private static void tryReducedSubTypeVisibility() {
+		IGem gem = GemFactory.create("ruby");
+		System.out.println(gem.color());
+		gem = GemFactory.create("black-diamond");
+		System.out.println(gem.color());
+	}
+	
 }

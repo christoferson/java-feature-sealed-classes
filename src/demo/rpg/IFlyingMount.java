@@ -26,7 +26,7 @@ public sealed interface IFlyingMount extends IMount
 		
 	}
 	
-	public static final class Wyvern implements IFlyingMount {
+	static final class Wyvern implements IFlyingMount {
 
 		@Override
 		public void flutter() {
