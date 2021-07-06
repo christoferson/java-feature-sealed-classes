@@ -1,5 +1,11 @@
 package demo;
 
+import java.lang.constant.ClassDesc;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import demo.cars.ICar;
+import demo.cars.ICar.Sedan;
 import demo.model.Button;
 import demo.model.Image;
 import demo.model.Widget;
@@ -37,13 +43,21 @@ public class TryFeatureSealedClass {
 		
 		tryReducedSubTypeVisibility();
 		
-// record
+		trySubTypeRecord();
+
 	}
 	
 	private static void tryBasicDeclaration() {
 		Widget widget = new Button();
 		System.out.println(widget);
-		widget.getClass().isSealed();
+		System.out.println("Button.CanonicalName(): " + widget.getClass().getCanonicalName());
+		System.out.println("Button.IsSealed(): " + widget.getClass().isSealed());
+		System.out.println("Button.PermittedSubclasses(): " + Arrays.asList(widget.getClass().permittedSubclasses())
+			.stream().map(ClassDesc::displayName).collect(Collectors.toList()));
+		System.out.println("Widget.CanonicalName(): " + Widget.class.getCanonicalName());
+		System.out.println("Widget.IsSealed(): " +  Widget.class.isSealed());
+		System.out.println("Widget.PermittedSubclasses(): " +  Arrays.asList(Widget.class.permittedSubclasses())
+			.stream().map(ClassDesc::displayName).collect(Collectors.toList()));		
 	}
 	
 	private static void tryShortDeclaration() {
@@ -79,7 +93,6 @@ public class TryFeatureSealedClass {
 		IFlyingMount fmount = new Gryphon();
 		fmount.flutter();
 	}
-	// 
 	
 	private static void trySealedSubType() {
 		Widget widget = new Image.LineBorderedImage();
@@ -91,6 +104,11 @@ public class TryFeatureSealedClass {
 		System.out.println(gem.color());
 		gem = GemFactory.create("black-diamond");
 		System.out.println(gem.color());
+	}
+	
+	private static void trySubTypeRecord() {
+		ICar car = new Sedan("NYI-19378-019");
+		System.out.println(car);
 	}
 	
 }
