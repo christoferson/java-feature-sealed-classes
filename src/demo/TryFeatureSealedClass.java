@@ -4,6 +4,8 @@ import java.lang.constant.ClassDesc;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import demo.calculators.IIntegerOperation;
+import demo.calculators.IIntegerOperation.IntegerOperation;
 import demo.cars.ICar;
 import demo.cars.ICar.Sedan;
 import demo.model.Button;
@@ -44,6 +46,8 @@ public class TryFeatureSealedClass {
 		tryReducedSubTypeVisibility();
 		
 		trySubTypeRecord();
+		
+		trySubTypeEnum();
 
 	}
 	
@@ -111,4 +115,8 @@ public class TryFeatureSealedClass {
 		System.out.println(car);
 	}
 	
+	private static void trySubTypeEnum() {
+		IIntegerOperation op = IntegerOperation.Addition;
+		System.out.println(op.evaluate(5, 3));
+	}
 }
